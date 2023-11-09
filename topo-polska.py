@@ -8,7 +8,7 @@ class MyTopo( Topo ):
 		# Initialize topology
 		Topo.__init__( self )
 
-		# Add hosts and switches
+		# Add switches and hosts
 		szczecin  = self.addSwitch('szczecin',  dpid='00:00:00:00:00:00:01:00')
 		kolobrzeg = self.addSwitch('kolobrzeg', dpid='00:00:00:00:00:00:02:00')
 		gdansk    = self.addSwitch('gdansk',    dpid='00:00:00:00:00:00:03:00')
@@ -22,7 +22,18 @@ class MyTopo( Topo ):
 		krakow    = self.addSwitch('krakow',    dpid='00:00:00:00:00:00:11:00')
 		rzeszow   = self.addSwitch('rzeszow',   dpid='00:00:00:00:00:00:12:00')
 
-		# host = self.addHost( 'host' )
+		h1  = self.addHost( 'h1' )
+		h2  = self.addHost( 'h2' )
+		h3  = self.addHost( 'h3' )
+		h4  = self.addHost( 'h4' )
+		h5  = self.addHost( 'h5' )
+		h6  = self.addHost( 'h6' )
+		h7  = self.addHost( 'h7' )
+		h8  = self.addHost( 'h8' )
+		h9  = self.addHost( 'h9' )
+		h10 = self.addHost( 'h10' )
+		h11 = self.addHost( 'h11' )
+		h12 = self.addHost( 'h12' )
 	
 		# Add links
 		self.addLink( szczecin, kolobrzeg )
@@ -49,9 +60,20 @@ class MyTopo( Topo ):
 		self.addLink( wroclaw, katowice )
 
 		self.addLink( lodz, katowice )
-
 		self.addLink( katowice, krakow )
-
 		self.addLink( krakow, rzeszow )
+
+		self.addLink( szczecin,  h1 )
+		self.addLink( kolobrzeg, h2 )
+		self.addLink( gdansk,    h3 )
+		self.addLink( bialystok, h4 )
+		self.addLink( poznan,    h5 )
+		self.addLink( bydgoszcz, h6 )
+		self.addLink( warszawa,  h7 )
+		self.addLink( wroclaw,   h8 )
+		self.addLink( lodz,      h9 )
+		self.addLink( katowice,  h10 )
+		self.addLink( krakow,    h11 )
+		self.addLink( rzeszow,   h12 )
 
 topos = { 'mytopo': ( lambda: MyTopo() ) }
